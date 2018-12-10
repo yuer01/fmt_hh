@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>title</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style>
+		.content {
+			height: 100px;
+			width: 100%;
+		}
+
+		.login {
+			margin-top: 10px;
+		}
+
+
+	</style>
+</head>
+
+<body style="background-color:white;">
+
+	<div class="content">
+
+	</div>
+
+	<ul class="aui-list aui-form-list">
+
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner">
+				<div class="aui-list-item-label">
+					手机
+				</div>
+				<div class="aui-list-item-input">
+					<input type="text" placeholder="请输入手机号" id="username" value="13536363838">
+				</div>
+			</div>
+		</li>
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner">
+				<div class="aui-list-item-label">
+					密码
+				</div>
+				<div class="aui-list-item-input">
+					<input type="password" placeholder="请输入密码" id="password" value="111111">
+				</div>
+			</div>
+		</li>
+
+	</ul>
+
+	<div class="aui-btn aui-btn-info" style="margin:10%;width:80%;height:50px;text-align:center;line-height:50px;" tapmode onclick="fnlogin()">登录</div>
+
+	<div tapmode class="aui-btn aui-btn-block  login" style="display:none;" onclick="open_reg()">注册</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+
+
+	function open_reg() {
+		api.openWin({
+			name: 'reg',
+			url: 'reg.html',
+			pageParam: {
+				name: 'reg'
+			}
+		});
+
+	}
+
+	function open_main() {
+		api.openWin({
+			name: 'mainframe',
+			url: 'mainframe.html',
+			pageParam: {
+				name: 'test'
+			}
+		});
+
+
+	}
+
+
+
+	function fnlogin() {
+		//var pass1 =	UIInput_value(id2);
+		var username = $('#username').val();
+		var password = $('#password').val();
+		// console.log('http://aiche.chengcaibao.net/api/user/login?UserName=' + username + '&passWord=' + password);
+		api.ajax({
+			url: 'http://aiche.chengcaibao.net/api/user/login?UserName="+ username +"&passWord=' + password,
+			method: 'get',
+			dataType: 'json',
+		}, function(ret, err) {
+			if (ret) {
+				// api.alert({
+				// 	msg: JSON.stringify(ret)
+				// });
+				var obj = JSON.parse(JSON.stringify(ret));
+        console.log(JSON.stringify(ret));
+				if (1 == obj.code) {
+					api.toast({
+						msg: '登录成功'
+					});
+					$api.setStorage('value', obj.value); //设置
+					$api.setStorage('token', obj.token); //设置
+
+					//成功
+					open_main();  
+
+				} else {
+					api.toast({
+						msg: obj.value.Message
+					});
+
+				}
+
+
+			} else {
+				api.alert({
+					msg: JSON.stringify(err)
+				});
+			};
+		});
+
+		api.addEventListener({
+			name: 'offline' // 断网了
+		}, function(ret, err) {
+			alert('断网了');
+		});
+
+		api.addEventListener({
+			name: 'online' // 已经连上网络
+		}, function(ret, err) {
+			alert('已连接到网络');
+		});
+
+
+	}
+
+</script>
+
+</html>

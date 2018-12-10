@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+</head>
+
+<body>
+    <header class="aui-bar aui-bar-nav" id="aui-header">
+        <div class="aui-title">郑州河南总部(A级)</div>
+        <a class="aui-pull-right aui-btn" style="margin-right:10px;" tapmode onclick="opensetWin()">
+            <span class="aui-iconfont aui-icon-gear"></span>
+        </a>
+    </header>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        api.parseTapmode();
+        ExitApp();
+        getUserInfo() ;
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+        api.openFrame({
+            name: 'main',
+            url: 'main.html',
+            bounces: true,
+            rect: {
+                x: 0,
+                y: headerPos.h,
+                w: 'auto',
+                h: 'auto'
+            }
+        })
+
+
+    };
+
+    function opensetWin() {
+        api.openWin({
+            name: 'setframe',
+            url: 'setframe.html',
+            pageParam: {
+                name: 'test'
+            }
+        });
+
+    }
+
+    function closeWin() {
+        api.closeWin({});
+    }
+
+    function ExitApp() {
+        api.addEventListener({
+            name: 'keyback'
+        }, function(ret, err) {
+            api.confirm({
+                title: '  ',
+                msg: '确认要退出app吗？',
+                buttons: ['确定', '取消']
+            }, function(ret, err) {
+                var index = ret.buttonIndex;
+                if (index == 1) {
+                    $api.setStorage("gesture", false);
+                    api.closeWidget({
+                        id: 'A6098193685798', //这里需要修改为自己的应用ID
+                        retData: {
+                            name: 'closeWidget'
+                        },
+                        silent: true
+                    });
+
+                    setTimeout(function() {
+                        exitApp();
+                    }, 3000)
+                }
+            });
+
+        });
+
+    }
+
+    //获取个人信息
+    function getUserInfo() {
+        var token = $api.getStorage('token', '');
+        api.ajax({
+            url: 'http://aiche.chengcaibao.net/api/user/GetModel?token=' + token,
+            method: 'get'
+        }, function(ret, err) {
+          if (ret) {
+    				// api.alert({
+    				// 	msg: JSON.stringify(ret)
+    				// });
+    				var obj = JSON.parse(JSON.stringify(ret));
+            console.log(JSON.stringify(ret));
+    				if (0 == obj.ret) {
+    					$api.setStorage('name', obj.value.UserName); //用户名
+              var name = $api.getStorage('name', '');
+              console.log("---------------"+name);
+    					$api.setStorage('userinfovalue', obj.value); //用户信息
+    				} else {
+
+    				}
+
+
+    			} else {
+
+    			};
+        });
+
+    }
+</script>
+
+</html>

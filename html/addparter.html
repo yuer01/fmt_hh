@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>title</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style>
+		header {
+			width: 100%;
+			height: 50px;
+			margin-top: 25px;
+			line-height: 50px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body style="background-color:white;">
+
+
+
+	<ul class="aui-list aui-form-list">
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner">
+				<div class="aui-list-item-label">
+					姓名
+				</div>
+				<div class="aui-list-item-input">
+					<input type="text" placeholder="请输入合伙人姓名" id="username">
+				</div>
+			</div>
+		</li>
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner">
+				<div class="aui-list-item-label">
+					手机
+				</div>
+				<div class="aui-list-item-input">
+					<input type="text" placeholder="请输入合伙人手机号" id="username">
+				</div>
+			</div>
+		</li>
+		<ul class="aui-list aui-form-list">
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						公司名
+					</div>
+					<div class="aui-list-item-input">
+						<input type="text" placeholder="请输入合伙人公司名称" id="username">
+					</div>
+				</div>
+			</li>
+			<li class="aui-list-item">
+				<div class="aui-list-item-inner">
+					<div class="aui-list-item-label">
+						合伙人级别
+					</div>
+					<div class="aui-list-item-input">
+						<label><input class="aui-radio" type="radio" name="demo" checked=""> A</label>
+						<label><input class="aui-radio" type="radio" name="demo"> B</label>
+						<label><input class="aui-radio" type="radio" name="demo" > C</label>
+					</div>
+				</div>
+			</li>
+
+		</ul>
+
+		<div class="aui-btn aui-btn-info" style="margin:10%;width:80%;height:50px;
+	text-align:center;line-height:50px;" tapmode onclick="fnaddparter()">添加</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	apiready = function() {
+
+		var header = $api.byId('header');
+		//适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+		$api.fixStatusBar(header);
+
+	}
+
+
+	function fnaddparter() {
+		//var pass1 =	UIInput_value(id2);
+		// var username = $('#username').val(); // var password = $('#password').val(); // console.log('http://aiche.chengcaibao.net/api/user/login?UserName=' + username + '&passWord=' + password); // api.ajax({ // url: 'http://aiche.chengcaibao.net/api/user/login?UserName="+ username +"&passWord='
+		// +password, // method: 'get',
+		// 	dataType: 'json',
+		// }, function(ret, err) {
+		// 	if (ret) {
+		// 		// api.alert({
+		// 		// 	msg: JSON.stringify(ret)
+		// 		// });
+		// 		var obj = JSON.parse(JSON.stringify(ret));
+		//
+		// 		if (1 == obj.code) {
+		// 			api.toast({
+		// 				msg: '登录成功'
+		// 			});
+		// 			$api.setStorage('value', obj.value); //设置
+		// 			$api.setStorage('token', obj.token); //设置
+		//
+		// 			//成功
+		// 			open_main();  
+		//
+		// 		} else {
+		// 			api.toast({
+		// 				msg: '用户名不存在！'
+		// 			});
+		//
+		// 		}
+		//
+		//
+		// 	} else {
+		// 		api.alert({
+		// 			msg: JSON.stringify(err)
+		// 		});
+		// 	};
+		// });
+		//
+		// api.addEventListener({
+		// 	name: 'offline' // 断网了
+		// }, function(ret, err) {
+		// 	alert('断网了');
+		// });
+		//
+		// api.addEventListener({
+		// 	name: 'online' // 已经连上网络
+		// }, function(ret, err) {
+		// 	alert('已连接到网络');
+		// });
+
+
+	}
+</script>
+
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/aui.css" />
+    <style type="text/css">
+        #classify {
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="aui-content ">
+        <div class="aui-grid aui-bg-info">
+            <div class="aui-hr aui-clearfix"></div>
+            <div class="aui-row" id="classify">
+                <div class="aui-col-xs-3" tapmode onclick="open_shops()">
+                    <i class="aui-iconfont aui-icon-home"></i>
+                    <div class="aui-grid-label">我的商户</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_storydetail()">
+                    <i class="aui-iconfont aui-icon-menu"></i>
+                    <div class="aui-grid-label">流水明细</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_sharebenefit()">
+                    <!-- <div class="aui-badge"></div> -->
+                    <i class="aui-iconfont aui-icon-laud"></i>
+                    <div class="aui-grid-label">分润</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_carinsurance()">
+                    <i class="aui-iconfont aui-icon-my"></i>
+                    <div class="aui-grid-label">合伙人</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="aui-content aui-margin-b-10">
+        <div class="aui-grid">
+            <div class="aui-row">
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <i class="aui-iconfont aui-icon-phone aui-text-info"></i>
+                    <div class="aui-grid-label">紧急救援</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <i class="aui-iconfont aui-icon-info aui-text-warning"></i>
+                    <div class="aui-grid-label">最新资讯</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <i class="aui-iconfont aui-icon-video aui-text-warning"></i>
+                    <div class="aui-grid-label">政策法规</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <i class="aui-iconfont aui-icon-paper aui-text-info"></i>
+                    <div class="aui-grid-label">新能源</div>
+                </div>
+                <div class="aui-hr aui-clearfix"></div>
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <i class="aui-iconfont aui-icon-like aui-text-danger"></i>
+                    <div class="aui-grid-label">保养知识</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <!-- <div class="aui-badge" style="left:50%">抢红包</div> -->
+                    <i class="aui-iconfont aui-icon-refresh aui-text-danger"></i>
+                    <div class="aui-grid-label">洗车设备</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <i class="aui-iconfont aui-icon-map aui-text-warning"></i>
+                    <div class="aui-grid-label">快修快保</div>
+                </div>
+                <div class="aui-col-xs-3" tapmode onclick="open_isnotopen()">
+                    <i class="aui-iconfont aui-icon-more aui-text-primary"></i>
+                    <div class="aui-grid-label">更多信息</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="aui-content aui-margin-b-10" style="overflow:hidden; background:#ffffff;">
+        <div class="aui-info aui-padded-l-15 aui-padded-r-15" tapmode onclick="open_shops()">
+            <div class="aui-info-item">
+              <i class="aui-iconfont aui-icon-home" style="font-size: 1.2rem;margin-right:15px;color:#03a9f4"></i>
+              <div style="display:inline-block">
+                  <div style="display: top">我的商户</div>
+                  <div style="display: bottom;margin-top:5px;">今:¥500.00 周:¥3000.00 月:¥13000.00</div>
+              </div>
+            </div>
+            <div class="aui-info-item">
+                <i class="aui-iconfont aui-icon-right"></i>
+            </div>
+        </div>
+
+        <div class="aui-hr aui-clearfix"></div>
+
+        <div class="aui-info aui-padded-l-15 aui-padded-r-15" tapmode onclick="open_storydetail()">
+            <div class="aui-info-item">
+              <i class="aui-iconfont aui-icon-menu" style="font-size: 1.2rem;margin-right:15px;color:#03a9f4"></i>
+              <div style="display:inline-block">
+                  <div style="display: top">流水明细</div>
+                  <div style="display: bottom;margin-top:5px;">今:¥500.00 周:¥3700.00 月:¥13000.00</div>
+              </div>
+            </div>
+            <div class="aui-info-item">
+                <i class="aui-iconfont aui-icon-right"></i>
+            </div>
+        </div>
+        <div class="aui-hr aui-clearfix"></div>
+
+        <div class="aui-info aui-padded-l-15 aui-padded-r-15" tapmode onclick="open_sharebenefit()">
+            <div class="aui-info-item">
+                <i class="aui-iconfont aui-icon-laud" style="font-size: 1.2rem;margin-right:15px;color:#03a9f4"></i>
+                <div style="display:inline-block">
+                    <div style="display: top">分润</div>
+                    <div style="display: bottom;margin-top:5px;">今:¥100.00 周:¥700.00 月:¥4000.00</div>
+                </div>
+            </div>
+            <div class="aui-info-item">
+                <i class="aui-iconfont aui-icon-right"></i>
+            </div>
+        </div>
+        <div class="aui-hr aui-clearfix"></div>
+        <div class="aui-info aui-padded-l-15 aui-padded-r-15"  tapmode onclick="open_carinsurance()">
+            <div class="aui-info-item">
+                <i class="aui-iconfont aui-icon-my" style="font-size: 1.2rem;margin-right:15px;color:#03a9f4"></i>
+                <div style="display:inline-block">
+                    <div style="display: top">合伙人</div>
+                    <div style="display: bottom;margin-top:5px;">今:¥1000.00 周:¥7000.00 月:¥40000.00</div>
+                </div>
+            </div>
+            <div class="aui-info-item">
+                <i class="aui-iconfont aui-icon-right"></i>
+            </div>
+        </div>
+        <div class="aui-hr aui-clearfix"></div>
+    </section>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/aui-toast.js"></script>
+<script type="text/javascript">
+    apiready = function() {
+        api.parseTapmode();
+        var header = $api.byId('aui-header');
+        $api.fixStatusBar(header);
+        var headerPos = $api.offset(header);
+        var body_h = $api.offset($api.dom('body')).h;
+
+    }
+
+
+    var tab = document.querySelectorAll(".aui-tab-item");
+    for (var i in tab) {
+        tab[i].onclick = function(e) {
+            document.querySelector(".aui-tab-item.aui-active").classList.remove("aui-active");
+            e.target.classList.add("aui-active");
+        }
+    }
+
+
+    //打开每日流水
+    function open_storydetail() {
+        api.openWin({
+            name: 'billdetailframe',
+            url: 'billdetailframe.html',
+            pageParam: {
+                name: 'billdetailframe'
+            }
+        });
+
+    }
+
+    //车辆保险
+    function open_carinsurance() {
+        api.openWin({
+            name: 'carinsuranceframe',
+            url: 'carinsuranceframe.html',
+            pageParam: {
+                name: 'carinsuranceframe'
+            }
+        });
+
+    }
+
+    function open_isnotopen() {
+        // var toast = new auiToast();
+        // toast.custom({
+        //     title: "暂未开放",
+        //     html: '<i class="aui-iconfont aui-icon-laud"></i>',
+        //     duration: 1000
+        // });
+
+    }
+    //分润
+    function open_sharebenefit() {
+        api.openWin({
+            name: 'sharebenifetframe',
+            url: 'sharebenifetframe.html',
+            pageParam: {
+                name: 'sharebenifetframe'
+            }
+        });
+
+    }
+    //我的商户
+    function open_shops() {
+        api.openWin({
+            name: 'shops',
+            url: 'shopsframe.html',
+            pageParam: {
+                name: 'reg'
+            }
+        });
+
+    }
+
+
+</script>
+
+
+</html>

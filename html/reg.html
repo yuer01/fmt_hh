@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
+	<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+	<title>title</title>
+	<link rel="stylesheet" type="text/css" href="../css/api.css" />
+	<link rel="stylesheet" type="text/css" href="../css/aui.css" />
+	<style>
+		html,
+		body {
+			background-color: #fff;
+		}
+
+		.content {
+			height: 100px;
+			width: 100%;
+		}
+
+		.login {
+			margin-top: 10px;
+		}
+
+		header {
+			width: 100%;
+			height: 50px;
+			margin-top: 25px;
+			line-height: 50px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		注册
+	</header>
+	</div>
+	<div class="content">
+
+	</div>
+
+	<ul class="aui-list aui-form-list">
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner">
+				<div class="aui-list-item-label">
+					手机
+				</div>
+				<div class="aui-list-item-input">
+					<input type="text" placeholder="请输入手机号" id="username" value="13536363838">
+				</div>
+			</div>
+		</li>
+		<li class="aui-list-item">
+			<div class="aui-list-item-inner">
+				<div class="aui-list-item-label">
+					密码
+				</div>
+				<div class="aui-list-item-input">
+					<input type="password" placeholder="请输入密码" id="password" value="111111">
+				</div>
+			</div>
+		</li>
+
+	</ul>
+
+
+	<div tapmode class="aui-btn aui-btn-block  login" onclick="reg()">注册</div>
+</body>
+<script type="text/javascript" src="../script/api.js"></script>
+<script type="text/javascript" src="../script/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	var winH; //window窗口的高
+
+	apiready = function() {
+
+		var header = $api.byId('header');
+		//适配iOS7+，Android4.4+状态栏沉浸式效果，详见config文档statusBarAppearance字段
+		$api.fixStatusBar(header);
+	}
+
+
+
+
+	function UIInput_value(oneid) {
+		UIInput.value({
+			id: oneid
+		}, function(ret, err) {
+			if (ret) {
+				console.log(JSON.stringify(ret));
+			}
+		});
+	}
+
+	function closeUIIput(id) {
+		UIInput.close({
+			id: id
+		});
+	}
+
+	//滚动页面防止别键盘遮挡,仅Android需要
+	function fnscoll(L) {
+		console.log(L + ':' + passWordTop);
+		if (L > passWordTop) {
+			document.body.scrollTop = L - passWordTop; //滚动距离=键盘高度-密码框距屏幕底部距离
+		}
+	}
+
+	function fnclear() {
+		UIInput.value({
+			id: id,
+			msg: ''
+		}, function(ret, err) {
+			if (ret) {
+				console.log(JSON.stringify(ret));
+			}
+		});
+	}
+
+	function reg() {
+		//var pass1 =	UIInput_value(id2);
+		var username = $('#username').val();
+		var password = $('#password').val();
+		//http://aiche.chengcaibao.net/api/user/Register?UserName=17090098889&passWord=111222&UserType=1&RealName=%E9%99%88%E6%B6%9B&MobilePhone=17090098889&sex=1
+
+		api.ajax({
+			url: 'http://aiche.chengcaibao.net/api/user/Register?UserName="+ username +"&passWord=' + password + '&UserType=1&RealName=%E9%99%88%E6%B6%9B&MobilePhone=17090098889&sex=1',
+			method: 'get',
+		}, function(ret, err) {
+			if (ret) {
+				api.alert({
+					msg: JSON.stringify(ret)
+				});
+			} else {
+				api.alert({
+					msg: JSON.stringify(err)
+				});
+			};
+		});
+	}
+</script>
+
+</html>
